@@ -2,10 +2,13 @@
     <div>
         <section class="relative">
             <Navbar :user="user"></Navbar>
+
         </section>
         <VueParticle domId='particle' :config=myConfig />
-        <main class="min-h-screen absolute z-2">
-            <div class="grid md:grid-cols-3 gap-4 mt-8 md:mx-24">
+        <main class="min-h-screen absolute z-2 w-full">
+            <SecondNav></SecondNav>
+            <div class="grid md:grid-cols-3 gap-4 md:mx-24">
+
                 <slot />
             </div>
         </main>
@@ -14,13 +17,16 @@
 
 <script>
     import Navbar from "@/Pages/Components/Navbar";
+
     import Vue from 'vue';
     import VueParticle from 'vue-particlejs';
+    import SecondNav from "@/Pages/Components/SecondNav";
     export default {
         props:{
             rooms: Array,
             user: Object
         },
+
         data: function (){
             return {
                 myConfig:{
@@ -136,7 +142,7 @@
             };
         },
         components:{
-          Navbar, VueParticle
+          Navbar, VueParticle, SecondNav
         },
     };
 </script>

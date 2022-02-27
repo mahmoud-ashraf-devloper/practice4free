@@ -21,7 +21,7 @@
 
 
     </head>
-    <body class="font-sans antialiased relative">
+    <body class="font-sans antialiased relative bg-gray-900">
         <div id='particle' class="fixed bg-gray-900 w-full z-0"></div>
         @inertia
         @env ('local')

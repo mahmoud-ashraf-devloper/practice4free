@@ -12,7 +12,7 @@ class GoogleSocialiteController extends Controller
 {
     public function redirectToGoogle(): RedirectResponse|\Illuminate\Http\RedirectResponse
     {
-        return Socialite::driver('google')->redirect();
+        return Socialite::driver('google')->setScopes(['openid', 'email'])->redirect();
     }
 
     public function handleCallback()

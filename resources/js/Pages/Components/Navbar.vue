@@ -23,7 +23,7 @@
             <div :class="{hidden: user}" class="text-white">
                 <Link href="/auth/google"
                       as="button"
-                      class="flex text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-gray-800 hover:bg-white mt-4 lg:mt-0"
+                      class="text-base flex text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-gray-800 hover:bg-white mt-4 lg:mt-0"
                 >
                     Login With Google <icon name="google" class="w-5 h-5 ml-2 text-center fill-current "></icon>
                 </Link>

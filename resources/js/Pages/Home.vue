@@ -1,5 +1,6 @@
 <template>
     <Room v-for="room in rooms"> </Room>
+
 </template>
 
 <script>

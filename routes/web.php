@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\GoogleSocialiteController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\RoomController;
 use App\Models\User;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Auth;
@@ -34,6 +35,7 @@ Route::get('/', function () {
 //})->name('dashboard');
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/room/{roomId}', [RoomController::class, 'index'])->name('room');
 
 Route::get('auth/google', [GoogleSocialiteController::class, 'redirectToGoogle']);
 Route::get('callback/google', [GoogleSocialiteController::class, 'handleCallback']);

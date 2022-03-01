@@ -15,13 +15,13 @@
             </div>
             <div class="room-users grid grid-cols-6 py-4 px-3 justify-items-center">
                 <div class="user mr-2 ">
-                    <Link><img class="rounded-full border-2 border-blue-300" src="https://lh3.googleusercontent.com/a-/AOh14GgyeSAl8Bc4WDZQPzNkQLrxxHN3DpSCYrv_P3mvxQ" alt=""></Link>
+                    <Link><img class="rounded-full border-2 border-blue-300" src="https://lh3.googleusercontent.com/a-/AOh14GixNvmBgSmgMFlQ9nApEB4DSArBSuUvzGz9j3hoFg" alt=""></Link>
                 </div>
                 <div class="user mr-2 ">
-                    <Link><img class="rounded-full border-2 border-blue-300" src="https://lh3.googleusercontent.com/a-/AOh14GgyeSAl8Bc4WDZQPzNkQLrxxHN3DpSCYrv_P3mvxQ" alt=""></Link>
+                    <Link><img class="rounded-full border-2 border-blue-300" src="https://lh3.googleusercontent.com/a-/AOh14GixNvmBgSmgMFlQ9nApEB4DSArBSuUvzGz9j3hoFg" alt=""></Link>
                 </div>
                 <div class="user mr-2 ">
-                    <Link><img class="rounded-full border-2 border-blue-300" src="https://lh3.googleusercontent.com/a-/AOh14GgyeSAl8Bc4WDZQPzNkQLrxxHN3DpSCYrv_P3mvxQ" alt=""></Link>
+                    <Link><img class="rounded-full border-2 border-blue-300" src="https://lh3.googleusercontent.com/a-/AOh14GixNvmBgSmgMFlQ9nApEB4DSArBSuUvzGz9j3hoFg" alt=""></Link>
                 </div>
             </div>
             <div class="flex justify-center items-end mt-4 b-1">

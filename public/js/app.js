@@ -23746,6 +23746,17 @@ __webpack_require__.r(__webpack_exports__);
     },
     toggleChatArea: function toggleChatArea() {
       this.chatArea = !this.chatArea;
+    },
+    getAcess: function getAcess() {
+      var constraints = {
+        'video': true,
+        'audio': true
+      };
+      navigator.mediaDevices.getUserMedia(constraints).then(function (stream) {
+        console.log('Got MediaStream:', stream);
+      })["catch"](function (error) {
+        console.error('Error accessing media devices.', error);
+      });
     }
   }
 });
@@ -27826,7 +27837,7 @@ var _hoisted_6 = {
 
 var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
   "class": "rounded-full border-2 border-blue-300",
-  src: "https://lh3.googleusercontent.com/a-/AOh14GgyeSAl8Bc4WDZQPzNkQLrxxHN3DpSCYrv_P3mvxQ",
+  src: "https://lh3.googleusercontent.com/a-/AOh14GixNvmBgSmgMFlQ9nApEB4DSArBSuUvzGz9j3hoFg",
   alt: ""
 }, null, -1
 /* HOISTED */
@@ -27838,7 +27849,7 @@ var _hoisted_8 = {
 
 var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
   "class": "rounded-full border-2 border-blue-300",
-  src: "https://lh3.googleusercontent.com/a-/AOh14GgyeSAl8Bc4WDZQPzNkQLrxxHN3DpSCYrv_P3mvxQ",
+  src: "https://lh3.googleusercontent.com/a-/AOh14GixNvmBgSmgMFlQ9nApEB4DSArBSuUvzGz9j3hoFg",
   alt: ""
 }, null, -1
 /* HOISTED */
@@ -27850,7 +27861,7 @@ var _hoisted_10 = {
 
 var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
   "class": "rounded-full border-2 border-blue-300",
-  src: "https://lh3.googleusercontent.com/a-/AOh14GgyeSAl8Bc4WDZQPzNkQLrxxHN3DpSCYrv_P3mvxQ",
+  src: "https://lh3.googleusercontent.com/a-/AOh14GixNvmBgSmgMFlQ9nApEB4DSArBSuUvzGz9j3hoFg",
   alt: ""
 }, null, -1
 /* HOISTED */
@@ -29201,13 +29212,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return $options.toggleMic && $options.toggleMic.apply($options, arguments);
     })
   }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_icon, {
+    onClick: $options.getAcess,
     name: "mic-on",
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([{
       hidden: _ctx.mic === false
     }, "text-white w-8 h-8 fill-current"])
   }, null, 8
   /* PROPS */
-  , ["class"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_icon, {
+  , ["onClick", "class"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_icon, {
     name: "mic-off",
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([{
       hidden: _ctx.mic === true

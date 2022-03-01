@@ -4,7 +4,7 @@
             <div class="flex justify-center">
                 <div class="mt-8">
                     <button class="mx-3 bg-blue-600 hover:bg-blue-500 p-3 rounded-md" @click="toggleMic">
-                        <icon name="mic-on" :class="{hidden: mic === false}" class="text-white w-8 h-8 fill-current "></icon>
+                        <icon @click="getAcess" name="mic-on" :class="{hidden: mic === false}" class="text-white w-8 h-8 fill-current "></icon>
                         <icon name="mic-off" :class="{hidden: mic === true}" class="text-white w-8 h-8 fill-current "></icon>
                     </button>
                     <button class="mr-3 bg-blue-600 hover:bg-blue-500 p-3 rounded-md" @click="toggleCamera">
@@ -56,6 +56,7 @@
 </template>
 
 <script>
+
     export default {
         data: function (){
             return {
@@ -74,6 +75,19 @@
             toggleChatArea(){
                 this.chatArea = !this.chatArea;
             },
+            getAcess(){
+                const constraints = {
+                    'video': true,
+                    'audio': true
+                }
+                navigator.mediaDevices.getUserMedia(constraints)
+                    .then(stream => {
+                        console.log('Got MediaStream:', stream);
+                    })
+                    .catch(error => {
+                        console.error('Error accessing media devices.', error);
+                    });
+            }
         }
     }
 </script>

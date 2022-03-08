@@ -21,11 +21,10 @@
 
 
     </head>
-    <body class="font-sans antialiased relative bg-gray-900">
-        <div id='particle' class="fixed bg-gray-900 w-full z-0"></div>
+    <body class="font-sans antialiased bg-slate-900 overflow-x-hidden relative ">
         @inertia
         @env ('local')
-{{--            <script src="{{ env('APP_URL') }}/browser-sync/browser-sync-client.js"></script>--}}
+            {{-- <script src="{{ env('APP_URL') }}/browser-sync/browser-sync-client.js"></script> --}}
         @endenv
     </body>
 </html>

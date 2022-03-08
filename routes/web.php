@@ -1,5 +1,6 @@
 <?php
 
+use App\Events\MessageSent;
 use App\Http\Controllers\GoogleSocialiteController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RoomController;
@@ -36,6 +37,11 @@ Route::get('/', function () {
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/room/{roomId}', [RoomController::class, 'index'])->name('room');
+
+Route::get('/trigger/{data}', function($data){
+    echo $data;
+    event(new App\Events\MessageSent($data));
+});
 
 Route::get('auth/google', [GoogleSocialiteController::class, 'redirectToGoogle']);
 Route::get('callback/google', [GoogleSocialiteController::class, 'handleCallback']);

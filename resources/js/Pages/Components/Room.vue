@@ -1,11 +1,11 @@
 <template>
 
-        <div class="bg-gray-900 rounded-md p-2 mx-4 border-2 border-sky-400 shadow-lg shadow-cyan-500/50">
+        <div class="rounded-md p-2 mx-4 bg-slate-900 shadow-sm shadow-blue-600 border-r-2 border-l-2 border-blue-600">
             <div class="info flex justify-between mx-4 my-4">
                 <div class="left flex">
                     <img class="rounded-full w-12 h-12 mr-2 border-2 border-slate-400" src="https://countryflagsapi.com/png/xk" alt="">
                     <div>
-                        <h1 class="text-gray-100">Any level</h1>
+                        <h1 class="text-white font-bold">Any level</h1>
                         <h1 class="text-gray-500">English</h1>
                     </div>
                 </div>

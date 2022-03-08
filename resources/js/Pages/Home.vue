@@ -1,6 +1,5 @@
 <template>
-    <Room v-for="room in rooms"> </Room>
-
+    <Room v-for='(room, index) in rooms' :key='index'> </Room>
 </template>
 
 <script>

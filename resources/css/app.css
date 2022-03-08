@@ -2,3 +2,8 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+.ball {
+  position: absolute;
+  border-radius: 100%;
+  opacity: 0.7;
+}

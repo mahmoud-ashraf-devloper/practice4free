@@ -9,7 +9,9 @@ class Room extends Model
 {
     use HasFactory;
 
+    protected $keyType = 'string';
     protected $fillable = [
+        'id',
         'title',
         'topic',
         'size',

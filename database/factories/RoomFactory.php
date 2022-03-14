@@ -20,6 +20,7 @@ class RoomFactory extends Factory
     public function definition()
     {
         return [
+            'id'    => uniqid(),
             'title' => $this->faker->title(),
             'topic' => $this->faker->words(3, true),
             'size'  => $this->faker->numberBetween(1,10),

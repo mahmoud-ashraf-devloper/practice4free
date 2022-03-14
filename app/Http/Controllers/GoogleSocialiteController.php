@@ -12,7 +12,7 @@ class GoogleSocialiteController extends Controller
 {
     public function redirectToGoogle(): RedirectResponse|\Illuminate\Http\RedirectResponse
     {
-        return Socialite::driver('google')->setScopes(['openid', 'email'])->redirect();
+        return Socialite::driver('google')->setScopes(['openid', 'email','profile'])->redirect();
     }
 
     public function handleCallback()
@@ -31,6 +31,7 @@ class GoogleSocialiteController extends Controller
                     'name' => $user->name,
                     'email' => $user->email,
                     'social_id'=> $user->id,
+                    'profile_photo_path' => $user->user['picture'] ?? $user->avatar,
                     'social_type'=> 'google',
                     'password' => encrypt('my-google')
                 ]);
@@ -41,7 +42,7 @@ class GoogleSocialiteController extends Controller
             }
 
         } catch (\Exception $e) {
-            dd($e->getMessage());
+            dd($e->getMessage(), "Here");
         }
     }
 }

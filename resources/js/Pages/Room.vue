@@ -1,41 +1,49 @@
 <template>
   <div class="grid grid-cols-4">
     <div class="left col-span-3 min-h-screen grid content-between">
-      <div class="flex justify-center">
-        <div class="mt-8">
-          <button class="mx-3 bg-blue-600 hover:bg-blue-500 p-3 rounded-md">
-            <icon
-              @click="closeMic"
-              name="mic-on"
-              :class="{ hidden: mic === false }"
-              class="text-white w-8 h-8 fill-current"
-            ></icon>
-            <icon
-              @click="openMic"
-              name="mic-off"
-              :class="{ hidden: mic === true }"
-              class="text-white w-8 h-8 fill-current"
-            ></icon>
-          </button>
-          <button
-            class="mr-3 bg-blue-600 hover:bg-blue-500 p-3 rounded-md"
-          >
-            <icon
-              @click="closeCamera"
-              name="camera-on"
-              :class="{ hidden: camera === false }"
-              class="text-white w-8 h-8 fill-current"
-            ></icon>
-            <icon
+      <div class="flex-col justify-center">
+        <div class="flex justify-center">
+          <div class="mt-8">
+            <button class="mx-3 bg-blue-600 hover:bg-blue-500 p-3 rounded-md">
+              <icon
+                @click="closeMic"
+                name="mic-on"
+                :class="{ hidden: mic === false }"
+                class="text-white w-8 h-8 fill-current"
+              ></icon>
+              <icon
+                @click="openMic"
+                name="mic-off"
+                :class="{ hidden: mic === true }"
+                class="text-white w-8 h-8 fill-current"
+              ></icon>
+            </button>
+            <button class="mr-3 bg-blue-600 hover:bg-blue-500 p-3 rounded-md">
+              <icon
+                @click="closeCamera"
+                name="camera-on"
+                :class="{ hidden: camera === false }"
+                class="text-white w-8 h-8 fill-current"
+              ></icon>
+              <icon
                 @click="openCamera"
-              name="camera-off"
-              :class="{ hidden: camera === true }"
-              class="text-white w-8 h-8 fill-current"
-            ></icon>
-          </button>
-          <button class="bg-red-600 hover:bg-red-500 p-3 rounded-md">
-            <icon name="exit" class="text-white w-8 h-8 fill-current"></icon>
-          </button>
+                name="camera-off"
+                :class="{ hidden: camera === true }"
+                class="text-white w-8 h-8 fill-current"
+              ></icon>
+            </button>
+            <button class="bg-red-600 hover:bg-red-500 p-3 rounded-md">
+              <icon name="exit" class="text-white w-8 h-8 fill-current"></icon>
+            </button>
+          </div>
+        </div>
+        <div class=" my-4">
+          <div class="flex justify-center align-center ">
+            <video :class="{hidden: camera===false}" class="shadow-sm rounded-md shadow-white
+              drop-shadow-sm bg-slate-900" autoplay playsinline style="max-height:480px; max-width:640px;">
+                Your browser does not support the video tag.
+            </video>
+          </div>
         </div>
       </div>
       <div class="flex items-end justify-center">
@@ -49,7 +57,7 @@
           "
         >
           <h1 class="text-white text-center">Bjorn</h1>
-          <img class="hover:brightness-50 w-20 h-20" src="" alt="" />
+          <img class="hover:brightness-50 w-20 h-20" src="http://practice4free.com/images/avatar.png" alt="" />
         </div>
         <div
           class="
@@ -61,7 +69,7 @@
           "
         >
           <h1 class="text-white text-center">Bjorn</h1>
-          <img class="hover:brightness-50 w-20 h-20" src="" alt="" />
+          <img class="hover:brightness-50 w-20 h-20" src="http://practice4free.com/images/avatar.png" alt="" />
         </div>
         <div
           class="
@@ -73,7 +81,7 @@
           "
         >
           <h1 class="text-white text-center">Bjorn</h1>
-          <img class="hover:brightness-50 w-20 h-20" src="" alt="" />
+          <img class="hover:brightness-50 w-20 h-20" src="http://practice4free.com/images/avatar.png" alt="" />
         </div>
       </div>
     </div>
@@ -153,12 +161,11 @@
 </template>
 
 <script>
-import { onMounted } from "@vue/runtime-core";
-
 export default {
   props: {},
   data() {
     return {
+      video:{},
       audioStream: [],
       cameraStream: [],
       audioConstraint: {
@@ -177,10 +184,10 @@ export default {
       this.camera = !this.camera;
     },
     toggleChatArea() {
-      this.chatArea = !this.chatArea;
+        this.chatArea = !this.chatArea;
     },
     toggleMic() {
-      this.mic = !this.mic;
+        this.mic = !this.mic;
     },
     getDevices(kind = null) {
       navigator.mediaDevices
@@ -193,57 +200,65 @@ export default {
         });
     },
     openMic() {
+        
       navigator.mediaDevices
         .getUserMedia(this.audioConstraint)
 
         .then((stream) => {
           if (stream.active) {
+              this.audioStream = stream;
             this.toggleMic();
-            this.audioStream = stream;
           }
         })
         .catch(function (err) {
           console.log(err.name + ": " + err.message);
+
         });
     },
 
     closeMic() {
+        
       if (this.audioStream.active) {
-
-        this.audioStream.getTracks().forEach(track => {
-            if(track.kind === 'audio'){
-                track.stop();
-            }
+        this.audioStream.getTracks().forEach((track) => {
+          if (track.kind === "audio") {
+            track.stop();
+          }
         });
         this.toggleMic();
-      }
 
+      }
     },
-    openCamera() {
+    openCamera() {   
       navigator.mediaDevices
         .getUserMedia(this.videoConstraint)
 
         .then((stream) => {
           if (stream.active) {
-            this.toggleCamera();
+            this.video = document.querySelector('video');
             this.cameraStream = stream;
+            window.stream = stream;
+            this.video.srcObject = stream;
+            this.toggleCamera();
+
           }
         })
         .catch(function (err) {
           console.log(err.name + ": " + err.message);
+
         });
     },
 
     closeCamera() {
+        
       if (this.cameraStream.active) {
-        this.cameraStream.getTracks().forEach(track => {
-            if(track.kind === 'video'){
-                track.stop();
-            }
+        this.cameraStream.getTracks().forEach((track) => {
+          if (track.kind === "video") {
+            track.stop();
+          }
         });
         this.toggleCamera();
-      }
 
+      }
     },
   }, // end of methods
 };

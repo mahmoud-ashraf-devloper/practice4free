@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('rooms', function (Blueprint $table) {
-            $table->id();
+            $table->string('id')->index()->unique();
 
             $table->string('title')->default(null);
             $table->string('topic')->default(null);

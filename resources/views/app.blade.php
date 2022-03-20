@@ -7,7 +7,7 @@
         <title inertia>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+        {{-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap"> --}}
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
@@ -24,7 +24,8 @@
     <body class="font-sans antialiased bg-slate-900 overflow-x-hidden relative ">
         @inertia
         @env ('local')
-            {{-- <script src="{{ env('APP_URL') }}/browser-sync/browser-sync-client.js"></script> --}}
+        {{-- <script src="{{ env('APP_URL') }}/browser-sync/browser-sync-client.js"></script> --}}
         @endenv
+        {{-- <script src="http://localhost:6001/socket.io/socket.io.js"></script> --}}
     </body>
 </html>

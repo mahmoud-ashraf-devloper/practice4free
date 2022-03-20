@@ -24,8 +24,4 @@ class Room extends Model
         return $this->belongsTo(User::class,'owner_id');
     }
 
-    public function roommates(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
-    {
-        return $this->belongsToMany(User::class, 'room_user', 'user_id');
-    }
 }
